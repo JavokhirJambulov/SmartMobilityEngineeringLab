@@ -50,12 +50,56 @@ Now, you can move turtle2 when this terminal is active, and turtle1 when the oth
 
 <img src="images/Screenshot from 2023-09-20 09-33-01.png">
 
-
-
 ## Understanding nodes:
-• 
+• The ros2 node list will show you the names of all running nodes. This is especially useful when you want to interact with a node, or when you have a system running many nodes and need to keep track of them. 
+
+<img src="images/Screenshot from 2023-09-20 10-20-32.png">
+
+• ros2 node info returns a list of subscribers, publishers, services, and actions. i.e. the ROS graph connections that interact with that node. 
+
+<img src="images/Screenshot from 2023-09-20 10-21-02.png">
+
 ## Understanding topics:
-• 
+•  ROS 2 breaks complex systems down into many modular nodes. Topics are a vital element of the ROS graph that act as a bus for nodes to exchange messages.
+
+The turtlesim tutorial tells you how to install rqt and all its plugins, including rqt_graph.
+
+To run rqt_graph, open a new terminal and enter the command:
+
+rqt_graph
+
+<img src="images/Screenshot from 2023-09-23 19-27-28.png">
+
+• Running the ros2 topic list command in a new terminal will return a list of all the topics currently active in the system:
+• ros2 topic list -t will return the same list of topics, this time with the topic type appended in brackets:
+• Since we know that /teleop_turtle publishes data to /turtlesim over the /turtle1/cmd_vel topic, let’s use echo to introspect that topic:
+
+<img src="images/Screenshot from 2023-09-23 19-41-28.png">
+
+Now return to rqt_graph and uncheck the Debug box.
+
+<img src="images/Screenshot from 2023-09-23 19-42-10.png">
+
+It’s important to note that this argument needs to be input in YAML syntax. Input the full command like so:
+
+ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+--once is an optional argument meaning “publish one message then exit”.
+And you will see your turtle move like so:
+
+<img src="images/Screenshot from 2023-09-23 19-47-41.png">
+
+For one last introspection on this process, you can view the rate at which data is published using:
+
+ros2 topic hz /turtle1/pose
+
+<img src="images/Screenshot from 2023-09-23 19-52-09.png">
+
+The turtle (and commonly the real robots which it is meant to emulate) require a steady stream of commands to operate continuously. So, to get the turtle to keep moving, you can run:
+
+ros2 topic pub --rate 1 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+
+<img src="images/Screenshot from 2023-09-23 19-52-50.png">
+
 ## Understanding services:
 • 
 ## Understanding parameters:
@@ -71,24 +115,8 @@ Now, you can move turtle2 when this terminal is active, and turtle1 when the oth
 ## Beginner: Client libraries:
 • 
 
-<img src="images/Screenshot from 2023-09-19 11-21-51.png">
-<img src="images/Screenshot from 2023-09-19 11-23-31.png">
-<img src="images/Screenshot from 2023-09-19 11-25-45.png">
-<img src="images/Screenshot from 2023-09-20 09-24-28.png">
-<img src="images/Screenshot from 2023-09-20 09-24-36.png">
-<img src="images/Screenshot from 2023-09-20 09-26-58.png">
-<img src="images/Screenshot from 2023-09-20 09-27-14.png">
-<img src="images/Screenshot from 2023-09-20 09-32-55.png">
-<img src="images/Screenshot from 2023-09-20 09-33-01.png">
-<img src="images/Screenshot from 2023-09-20 10-20-32.png">
-<img src="images/Screenshot from 2023-09-20 10-21-02.png">
-<img src="images/Screenshot from 2023-09-20 10-21-35.png">
-<img src="images/Screenshot from 2023-09-23 19-27-28.png">
-<img src="images/Screenshot from 2023-09-23 19-41-28.png">
-<img src="images/Screenshot from 2023-09-23 19-42-10.png">
-<img src="images/Screenshot from 2023-09-23 19-47-41.png">
-<img src="images/Screenshot from 2023-09-23 19-52-09.png">
-<img src="images/Screenshot from 2023-09-23 19-52-50.png">
+
+
 <img src="images/Screenshot from 2023-09-24 21-24-49.png">
 <img src="images/Screenshot from 2023-09-24 21-28-44.png">
 <img src="images/Screenshot from 2023-09-24 21-30-28.png">
