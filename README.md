@@ -2,6 +2,28 @@
 ROS installation bash history in shell file
 
 
+## Configuring environment:
+• 
+## Using turtlesim, ros2, and rqt:
+• 
+## Understanding nodes:
+• 
+## Understanding topics:
+• 
+## Understanding services:
+• 
+## Understanding parameters:
+• 
+## Understanding actions:
+• 
+## Using rqt_console to view logs:
+• 
+## Launching nodes:
+• 
+## Recording and playing back data:
+• 
+## Beginner: Client libraries:
+• 
 
 <img src="images/Screenshot from 2023-09-19 11-21-51.png">
 <img src="images/Screenshot from 2023-09-19 11-23-31.png">
