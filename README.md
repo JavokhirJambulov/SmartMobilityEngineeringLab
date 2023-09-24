@@ -1,6 +1,5 @@
 # SmartMobilityEngineeringLab
-ROS installation bash history in shell file
-
+#Beginner: CLI Tools
 
 ## Configuring environment:
 • 
@@ -52,3 +51,36 @@ ROS installation bash history in shell file
 <img src="images/Screenshot from 2023-09-24 21-42-52.png">
 <img src="images/Screenshot from 2023-09-24 21-45-31.png">
 <img src="images/Screenshot from 2023-09-24 21-48-22.png">
+
+
+#Beginner: Client Libraries:
+
+## Using colcon to build packages:
+• 
+## Creating a workspace:
+• 
+## Creating a package:
+• 
+## Writing a simple publisher and subscriber (C++):
+• 
+## Writing a simple publisher and subscriber (Python):
+• 
+## Writing a simple service and client (C++):
+• 
+## Writing a simple service and client (Python):
+• 
+## Creating custom msg and srv files:
+• 
+## Implementing custom interfaces:
+• 
+## Using parameters in a class (C++):
+• 
+## Using parameters in a class (Python):
+• 
+## Using ros2doctor to identify issues:
+• 
+## Creating and using plugins (C++):
+• 
+
+
+
