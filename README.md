@@ -105,40 +105,52 @@ ros2 topic pub --rate 1 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2
 • Services are another method of communication for nodes in the ROS graph. Services are based on a call-and-response model versus the publisher-subscriber model of topics. While topics allow nodes to subscribe to data streams and get continual updates, services only provide data when they are specifically called by a client.
 
 
+To find out the type of a service, use the command:
+
+ros2 service type <service_name>
+Let’s take a look at turtlesim’s /clear service. In a new terminal, enter the command:
+
+ros2 service type /clear
 
 
-https://github.com/JavokhirJambulov/SmartMobilityEngineeringLab/assets/91411930/902cf698-036b-4fd3-9b67-2fbeb7c40a7a
+<img src="images/Screenshot from 2023-09-24 21-24-49.png">
 
 
+<img src="images/Screenshot from 2023-09-24 21-28-44.png">
 
 
 ## Understanding parameters:
 • 
-## Understanding actions:
-• 
-## Using rqt_console to view logs:
-• 
-## Launching nodes:
-• 
-## Recording and playing back data:
-• 
-## Beginner: Client libraries:
-• 
 
 
-
-<img src="images/Screenshot from 2023-09-24 21-24-49.png">
-<img src="images/Screenshot from 2023-09-24 21-28-44.png">
 <img src="images/Screenshot from 2023-09-24 21-30-28.png">
 <img src="images/Screenshot from 2023-09-24 21-33-31.png">
+
+## Understanding actions:
+• 
+
+
 <img src="images/Screenshot from 2023-09-24 21-42-37.png">
 <img src="images/Screenshot from 2023-09-24 21-42-47.png">
 <img src="images/Screenshot from 2023-09-24 21-42-52.png">
+## Using rqt_console to view logs:
+• 
+
+
 <img src="images/Screenshot from 2023-09-24 21-45-31.png">
+
+
+## Launching nodes:
+• 
+
 <img src="images/Screenshot from 2023-09-24 21-48-22.png">
 
+## Recording and playing back data:
+• 
 
-#Beginner: Client Libraries:
+# Beginner: Client libraries:
+• 
+
 
 ## Using colcon to build packages:
 • 
