@@ -101,9 +101,11 @@ ros2 topic pub --rate 1 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2
 <img src="images/Screenshot from 2023-09-23 19-52-50.png">
 
 ## Understanding services:
+
 • Services are another method of communication for nodes in the ROS graph. Services are based on a call-and-response model versus the publisher-subscriber model of topics. While topics allow nodes to subscribe to data streams and get continual updates, services only provide data when they are specifically called by a client.
 
-![Service-SingleServiceClient](https://github.com/JavokhirJambulov/SmartMobilityEngineeringLab/assets/91411930/d744b4e5-300c-45c7-be85-30bd7ef2aad4)
+https://docs.ros.org/en/humble/_images/Service-SingleServiceClient.gif
+
 
 
 ## Understanding parameters:
