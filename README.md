@@ -18,35 +18,35 @@
 
 • rqt is a graphical user interface (GUI) tool for ROS 2. Everything done in rqt can be done on the command line, but rqt provides a more user-friendly way to manipulate ROS 2 elements.
 
-To start turtlesim, enter the following command in your terminal:
+• To start turtlesim, enter the following command in your terminal:
 
 ros2 run turtlesim turtlesim_node
-The simulator window should appear, with a random turtle in the center
+• The simulator window should appear, with a random turtle in the center
 
 <img src="images/Screenshot from 2023-09-19 11-21-51.png">
 
-Now you will run a new node to control the turtle in the first node:
+• Now you will run a new node to control the turtle in the first node:
 
 ros2 run turtlesim turtle_teleop_key
 
 <img src="images/Screenshot from 2023-09-19 11-25-45.png">
 
-To run rqt:
+• To run rqt:
 rqt
-Let’s use rqt to call the /spawn service. You can guess from its name that /spawn will create another turtle in the turtlesim window.
-Give the new turtle a unique name, like turtle2, by double-clicking between the empty single quotes in the Expression column. You can see that this expression corresponds to the value of name and is of type string.
+• Let’s use rqt to call the /spawn service. You can guess from its name that /spawn will create another turtle in the turtlesim window.
+• Give the new turtle a unique name, like turtle2, by double-clicking between the empty single quotes in the Expression column. You can see that this expression corresponds to the value of name and is of type string.
 
 <img src="images/Screenshot from 2023-09-20 09-24-28.png">
 
-The values for r, g and b, which are between 0 and 255, set the color of the pen turtle1 draws with, and width sets the thickness of the line.
+• The values for r, g and b, which are between 0 and 255, set the color of the pen turtle1 draws with, and width sets the thickness of the line.
 
 <img src="images/Screenshot from 2023-09-20 09-27-14.png">
 
-You need a second teleop node in order to control turtle2. However, if you try to run the same command as before, you will notice that this one also controls turtle1. The way to change this behavior is by remapping the cmd_vel topic.
+• You need a second teleop node in order to control turtle2. However, if you try to run the same command as before, you will notice that this one also controls turtle1. The way to change this behavior is by remapping the cmd_vel topic.
 
 <img src="images/Screenshot from 2023-09-20 09-32-55.png">
 
-Now, you can move turtle2 when this terminal is active, and turtle1 when the other terminal running turtle_teleop_key is active.
+• Now, you can move turtle2 when this terminal is active, and turtle1 when the other terminal running turtle_teleop_key is active.
 
 <img src="images/Screenshot from 2023-09-20 09-33-01.png">
 
@@ -62,7 +62,7 @@ Now, you can move turtle2 when this terminal is active, and turtle1 when the oth
 ## Understanding topics:
 •  ROS 2 breaks complex systems down into many modular nodes. Topics are a vital element of the ROS graph that act as a bus for nodes to exchange messages.
 
-The turtlesim tutorial tells you how to install rqt and all its plugins, including rqt_graph.
+• The turtlesim tutorial tells you how to install rqt and all its plugins, including rqt_graph.
 
 To run rqt_graph, open a new terminal and enter the command:
 
@@ -76,11 +76,11 @@ rqt_graph
 
 <img src="images/Screenshot from 2023-09-23 19-41-28.png">
 
-Now return to rqt_graph and uncheck the Debug box.
+• Now return to rqt_graph and uncheck the Debug box.
 
 <img src="images/Screenshot from 2023-09-23 19-42-10.png">
 
-It’s important to note that this argument needs to be input in YAML syntax. Input the full command like so:
+• It’s important to note that this argument needs to be input in YAML syntax. Input the full command like so:
 
 ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
 --once is an optional argument meaning “publish one message then exit”.
@@ -88,13 +88,13 @@ And you will see your turtle move like so:
 
 <img src="images/Screenshot from 2023-09-23 19-47-41.png">
 
-For one last introspection on this process, you can view the rate at which data is published using:
+• For one last introspection on this process, you can view the rate at which data is published using:
 
 ros2 topic hz /turtle1/pose
 
 <img src="images/Screenshot from 2023-09-23 19-52-09.png">
 
-The turtle (and commonly the real robots which it is meant to emulate) require a steady stream of commands to operate continuously. So, to get the turtle to keep moving, you can run:
+• The turtle (and commonly the real robots which it is meant to emulate) require a steady stream of commands to operate continuously. So, to get the turtle to keep moving, you can run:
 
 ros2 topic pub --rate 1 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
 
@@ -105,10 +105,10 @@ ros2 topic pub --rate 1 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2
 • Services are another method of communication for nodes in the ROS graph. Services are based on a call-and-response model versus the publisher-subscriber model of topics. While topics allow nodes to subscribe to data streams and get continual updates, services only provide data when they are specifically called by a client.
 
 
-To find out the type of a service, use the command:
+• To find out the type of a service, use the command:
 
 ros2 service type <service_name>
-Let’s take a look at turtlesim’s /clear service. In a new terminal, enter the command:
+• Let’s take a look at turtlesim’s /clear service. In a new terminal, enter the command:
 
 ros2 service type /clear
 
@@ -120,64 +120,128 @@ ros2 service type /clear
 
 
 ## Understanding parameters:
-• 
+• A parameter is a configuration value of a node. You can think of parameters as node settings. A node can store parameters as integers, floats, booleans, strings, and lists. In ROS 2, each node maintains its own parameters. For more background on parameters, please see the concept document.
 
 
 <img src="images/Screenshot from 2023-09-24 21-30-28.png">
 <img src="images/Screenshot from 2023-09-24 21-33-31.png">
 
 ## Understanding actions:
-• 
+• Actions are one of the communication types in ROS 2 and are intended for long running tasks. They consist of three parts: a goal, feedback, and a result.
+
+• Actions are built on topics and services. Their functionality is similar to services, except actions can be canceled. They also provide steady feedback, as opposed to services which return a single response.
 
 
 <img src="images/Screenshot from 2023-09-24 21-42-37.png">
 <img src="images/Screenshot from 2023-09-24 21-42-47.png">
 <img src="images/Screenshot from 2023-09-24 21-42-52.png">
 ## Using rqt_console to view logs:
-• 
+• rqt_console is a GUI tool used to introspect log messages in ROS 2. Typically, log messages show up in your terminal. With rqt_console, you can collect those messages over time, view them closely and in a more organized manner, filter them, save them and even reload the saved files to introspect at a different time.
+
+• Nodes use logs to output messages concerning events and status in a variety of ways. Their content is usually informational, for the sake of the user.
 
 
 <img src="images/Screenshot from 2023-09-24 21-45-31.png">
 
 
 ## Launching nodes:
-• 
+• In most of the introductory tutorials, you have been opening new terminals for every new node you run. As you create more complex systems with more and more nodes running simultaneously, opening terminals and reentering configuration details becomes tedious.
+
+• Launch files allow you to start up and configure a number of executables containing ROS 2 nodes simultaneously.
+
+• Running a single launch file with the ros2 launch command will start up your entire system - all nodes and their configurations - at once.
 
 <img src="images/Screenshot from 2023-09-24 21-48-22.png">
 
 ## Recording and playing back data:
-• 
+• ros2 bag is a command line tool for recording data published on topics in your system. It accumulates the data passed on any number of topics and saves it in a database. You can then replay the data to reproduce the results of your tests and experiments. Recording topics is also a great way to share your work and allow others to recreate it.
+
 
 # Beginner: Client libraries:
-• 
-
 
 ## Using colcon to build packages:
-• 
+• colcon is an iteration on the ROS build tools catkin_make, catkin_make_isolated, catkin_tools and ament_tools. For more information on the design of colcon see this document. https://design.ros2.org/articles/build_tool.html
+
+The source code can be found in the colcon GitHub organization.
+
+
 ## Creating a workspace:
-• 
+• A workspace is a directory containing ROS 2 packages. Before using ROS 2, it’s necessary to source your ROS 2 installation workspace in the terminal you plan to work in. This makes ROS 2’s packages available for you to use in that terminal.
+
+• You also have the option of sourcing an “overlay” - a secondary workspace where you can add new packages without interfering with the existing ROS 2 workspace that you’re extending, or “underlay”. Your underlay must contain the dependencies of all the packages in your overlay. Packages in your overlay will override packages in the underlay. It’s also possible to have several layers of underlays and overlays, with each successive overlay using the packages of its parent underlays.
+
+
 ## Creating a package:
-• 
+• A package is an organizational unit for your ROS 2 code. If you want to be able to install your code or share it with others, then you’ll need it organized in a package. With packages, you can release your ROS 2 work and allow others to build and use it easily.
+
+• Package creation in ROS 2 uses ament as its build system and colcon as its build tool. You can create a package using either CMake or Python, which are officially supported, though other build types do exist.
 ## Writing a simple publisher and subscriber (C++):
-• 
+• Nodes are executable processes that communicate over the ROS graph. In this tutorial, the nodes will pass information in the form of string messages to each other over a topic. The example used here is a simple “talker” and “listener” system; one node publishes data and the other subscribes to the topic so it can receive that data.
+
+• The code used in these examples can be found here. https://github.com/ros2/examples/tree/humble/rclcpp/topics
+
+
 ## Writing a simple publisher and subscriber (Python):
-• 
+• In this tutorial, you will create nodes that pass information in the form of string messages to each other over a topic. The example used here is a simple “talker” and “listener” system; one node publishes data and the other subscribes to the topic so it can receive that data.
+
+• The code used in these examples can be found here. https://github.com/ros2/examples/tree/humble/rclpy/topics
+
+
 ## Writing a simple service and client (C++):
-• 
+• When nodes communicate using services, the node that sends a request for data is called the client node, and the one that responds to the request is the service node. The structure of the request and response is determined by a .srv file.
+
+• The example used here is a simple integer addition system; one node requests the sum of two integers, and the other responds with the result.
+
+ 
+
 ## Writing a simple service and client (Python):
-• 
+• When nodes communicate using services, the node that sends a request for data is called the client node, and the one that responds to the request is the service node. The structure of the request and response is determined by a .srv file.
+
+
+• The example used here is a simple integer addition system; one node requests the sum of two integers, and the other responds with the result.
+
+
 ## Creating custom msg and srv files:
-• 
+• In previous tutorials you utilized message and service interfaces to learn about topics, services, and simple publisher/subscriber (C++/Python) and service/client (C++/Python) nodes. The interfaces you used were predefined in those cases.
+
+•  While it’s good practice to use predefined interface definitions, you will probably need to define your own messages and services sometimes as well. This tutorial will introduce you to the simplest method of creating custom interface definitions.
+
+
+
 ## Implementing custom interfaces:
-• 
+• While best practice is to declare interfaces in dedicated interface packages, sometimes it can be convenient to declare, create and use an interface all in one package.
+
+•  Recall that interfaces can currently only be defined in CMake packages. It is possible, however, to have Python libraries and nodes in CMake packages (using ament_cmake_python), so you could define interfaces and Python nodes together in one package. We’ll use a CMake package and C++ nodes here for the sake of simplicity.
+
+
+
 ## Using parameters in a class (C++):
+• When making your own nodes you will sometimes need to add parameters that can be set from the launch file.
+
+• This tutorial will show you how to create those parameters in a C++ class, and how to set them in a launch file.
+
 • 
+
 ## Using parameters in a class (Python):
+• When making your own nodes you will sometimes need to add parameters that can be set from the launch file.
+
+• This tutorial will show you how to create those parameters in a Python class, and how to set them in a launch file.
+
 • 
+
 ## Using ros2doctor to identify issues:
+• When your ROS 2 setup is not running as expected, you can check its settings with the ros2doctor tool.
+
+• ros2doctor checks all aspects of ROS 2, including platform, version, network, environment, running systems and more, and warns you about possible errors and reasons for issues.
+
 • 
+
 ## Creating and using plugins (C++):
-• 
+• This tutorial is derived from http://wiki.ros.org/pluginlib and Writing and Using a Simple Plugin Tutorial.
+
+• pluginlib is a C++ library for loading and unloading plugins from within a ROS package. Plugins are dynamically loadable classes that are loaded from a runtime library (i.e. shared object, dynamically linked library). With pluginlib, you do not have to explicitly link your application against the library containing the classes – instead pluginlib can open a library containing exported classes at any point without the application having any prior awareness of the library or the header file containing the class definition. Plugins are useful for extending/modifying application behavior without needing the application source code.
+
+
 
 
 
