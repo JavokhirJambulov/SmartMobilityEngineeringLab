@@ -2,21 +2,19 @@
 ROS2 Tutorials
 
 1. [Beginner: CLI Tools](#Beginner:-CLI-Tools)
-  1. [Configuring environment]()
-  2. [Using turtlesim, ros2, and rqt]()
-  3. [Understanding nodes]()
-  4. [Understanding topics]()
-  5. [Understanding services]()
-  6. [Understanding parameters]()
-  7. [Understanding actions]()
+  1. [Configuring environment](#configuring-environment)
+  2. [Using turtlesim, ros2, and rqt](#using-turtlesim-ros2-and-rqt)
+  3. [Understanding nodes](#understanding-nodes)
+  4. [Understanding topics](#understanding-topics)
+  5. [Understanding services](#understanding-services)
+  6. [Understanding parameters](#understanding-parameters)
+  7. [Understanding actions](#understanding-actions)
   8. [Using rqt_console to view logs]()
-  9. [Launching nodes]()
-  10. [Recording and playing back data]()
+  9. [Launching nodes](#launching-nodes)
+  10. [Recording and playing back data](#recording-and-playing-back-data)
 
-
-
-2. # Beginner: Client libraries:
-   1. [Using Colcon to Build Packages](#Using-colcon-to-build-packages:)
+2. [Beginner: Client libraries](#beginner-client-libraries-1)
+   1. [Using Colcon to Build Packages](#using-colcon-to-build-packages)
    2. [Creating a Workspace](#chapter-2-creating-a-workspace)
    3. [Creating a Package](#chapter-3-creating-a-package)
    4. [Writing a Simple Publisher and Subscriber (C++)](#chapter-4-writing-a-simple-publisher-and-subscriber-c)
@@ -31,7 +29,7 @@ ROS2 Tutorials
    13. [Chapter 13 - Creating and Using Plugins (C++)](#chapter-13-Creating-and-Using-Plugins-(C++_))
 
 
-#Beginner: CLI Tools:
+# Beginner: CLI Tools:
 
 ## Configuring environment:
 • ROS 2 relies on the notion of combining workspaces using the shell environment. “Workspace” is a ROS term for the location on your system where you’re developing with ROS 2. The core ROS 2 workspace is called the underlay. Subsequent local workspaces are called overlays. When developing with ROS 2, you will typically have several workspaces active concurrently.
@@ -167,6 +165,7 @@ ros2 service type /clear
 <img src="images/Screenshot from 2023-09-24 21-42-37.png">
 <img src="images/Screenshot from 2023-09-24 21-42-47.png">
 <img src="images/Screenshot from 2023-09-24 21-42-52.png">
+
 ## Using rqt_console to view logs:
 • rqt_console is a GUI tool used to introspect log messages in ROS 2. Typically, log messages show up in your terminal. With rqt_console, you can collect those messages over time, view them closely and in a more organized manner, filter them, save them and even reload the saved files to introspect at a different time.
 
