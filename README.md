@@ -164,6 +164,7 @@ ros2 service type /clear
 
 The source code can be found in the colcon GitHub organization.
 
+<img src="images/Screenshot from 2023-09-27 00-51-06.png">
 
 ## Creating a workspace:
 • A workspace is a directory containing ROS 2 packages. Before using ROS 2, it’s necessary to source your ROS 2 installation workspace in the terminal you plan to work in. This makes ROS 2’s packages available for you to use in that terminal.
@@ -171,15 +172,25 @@ The source code can be found in the colcon GitHub organization.
 • You also have the option of sourcing an “overlay” - a secondary workspace where you can add new packages without interfering with the existing ROS 2 workspace that you’re extending, or “underlay”. Your underlay must contain the dependencies of all the packages in your overlay. Packages in your overlay will override packages in the underlay. It’s also possible to have several layers of underlays and overlays, with each successive overlay using the packages of its parent underlays.
 
 
+<img src="images/Screenshot from 2023-09-27 00-51-29.png">
+<img src="images/Screenshot from 2023-09-27 00-55-55.png">
+
 ## Creating a package:
 • A package is an organizational unit for your ROS 2 code. If you want to be able to install your code or share it with others, then you’ll need it organized in a package. With packages, you can release your ROS 2 work and allow others to build and use it easily.
 
 • Package creation in ROS 2 uses ament as its build system and colcon as its build tool. You can create a package using either CMake or Python, which are officially supported, though other build types do exist.
+
+<img src="images/Screenshot from 2023-09-30 12-25-12.png">
+<img src="images/Screenshot from 2023-09-30 12-30-56.png">
+
 ## Writing a simple publisher and subscriber (C++):
 • Nodes are executable processes that communicate over the ROS graph. In this tutorial, the nodes will pass information in the form of string messages to each other over a topic. The example used here is a simple “talker” and “listener” system; one node publishes data and the other subscribes to the topic so it can receive that data.
 
 • The code used in these examples can be found here. https://github.com/ros2/examples/tree/humble/rclcpp/topics
 
+<img src="images/Screenshot from 2023-09-30 12-37-56.png">
+<img src="images/Screenshot from 2023-09-30 12-47-15.png">
+<img src="images/Screenshot from 2023-09-30 12-47-20.png">
 
 ## Writing a simple publisher and subscriber (Python):
 • In this tutorial, you will create nodes that pass information in the form of string messages to each other over a topic. The example used here is a simple “talker” and “listener” system; one node publishes data and the other subscribes to the topic so it can receive that data.
@@ -200,6 +211,13 @@ The source code can be found in the colcon GitHub organization.
 
 • The example used here is a simple integer addition system; one node requests the sum of two integers, and the other responds with the result.
 
+<img src="images/Screenshot from 2023-09-30 12-58-21.png">
+<img src="images/Screenshot from 2023-09-30 12-58-24.png">
+<img src="images/Screenshot from 2023-09-30 12-58-27.png">
+<img src="images/Screenshot from 2023-09-30 13-00-28.png">
+<img src="images/Screenshot from 2023-09-30 13-00-38.png">
+<img src="images/Screenshot from 2023-09-30 13-00-56.png">
+<img src="images/Screenshot from 2023-09-30 13-01-01.png">
 
 ## Creating custom msg and srv files:
 • In previous tutorials you utilized message and service interfaces to learn about topics, services, and simple publisher/subscriber (C++/Python) and service/client (C++/Python) nodes. The interfaces you used were predefined in those cases.
@@ -227,7 +245,12 @@ The source code can be found in the colcon GitHub organization.
 
 • This tutorial will show you how to create those parameters in a Python class, and how to set them in a launch file.
 
-• 
+<img src="images/Screenshot from 2023-09-30 13-37-44.png">
+<img src="images/Screenshot from 2023-09-30 13-37-50.png">
+
+
+<img src="images/Screenshot from 2023-09-30 13-38-44.png">
+<img src="images/Screenshot from 2023-09-30 13-38-56.png">
 
 ## Using ros2doctor to identify issues:
 • When your ROS 2 setup is not running as expected, you can check its settings with the ros2doctor tool.
@@ -241,7 +264,111 @@ The source code can be found in the colcon GitHub organization.
 
 • pluginlib is a C++ library for loading and unloading plugins from within a ROS package. Plugins are dynamically loadable classes that are loaded from a runtime library (i.e. shared object, dynamically linked library). With pluginlib, you do not have to explicitly link your application against the library containing the classes – instead pluginlib can open a library containing exported classes at any point without the application having any prior awareness of the library or the header file containing the class definition. Plugins are useful for extending/modifying application behavior without needing the application source code.
 
+<img src="images/Screenshot from 2023-09-30 14-09-20.png">
+<img src="images/Screenshot from 2023-09-30 14-09-34.png">
+<img src="images/Screenshot from 2023-09-30 14-09-39.png">
+<img src="images/Screenshot from 2023-09-30 14-09-41.png">
+<img src="images/Screenshot from 2023-09-30 14-09-45.png">
+<img src="images/Screenshot from 2023-09-30 14-09-47.png">
 
 
+Intermediate:
+Managing Dependencies with rosdep:
+Creating an action:
+Writing an action server and client (C++):
+Writing an action server and client (Python):
+Composing multiple nodes in a single process:
+Monitoring for parameter changes (C++):
 
+Launch:   
+Creating a launch file
+Integrating launch files into ROS 2 packages
+Using substitutions
+Using event handlers
+
+   
+tf2:
+Introducing tf2
+Writing a static broadcaster (Python)
+Writing a static broadcaster (C++)
+Writing a broadcaster (Python)
+Writing a broadcaster (C++)
+Writing a listener (Python)
+Writing a listener (C++)
+Adding a frame (Python)
+Adding a frame (C++)
+Using time (Python)
+Using time (C++)
+Traveling in time (Python)
+Traveling in time (C++)
+Debugging
+Quaternion fundamentals
+Using stamped datatypes with tf2_ros::MessageFilter
+
+Testing:
+Running Tests in ROS 2 from the Command Line
+Writing Basic Tests with C++ with GTest
+Writing Basic Tests with Python
+
+
+URDF:
+Building a visual robot model from scratch
+Building a movable robot model
+Adding physical and collision properties
+Using Xacro to clean up your code
+Using URDF with robot_state_publisher
+
+
+# ROS 2 Intermediate Tutorials
+
+## Managing Dependencies with rosdep
+
+## Creating an Action
+
+### Writing an Action Server and Client (C++)
+### Writing an Action Server and Client (Python)
+
+## Composing Multiple Nodes in a Single Process
+
+## Monitoring for Parameter Changes (C++)
+
+# ROS 2 Launch Tutorials
+
+## Creating a Launch File
+## Integrating Launch Files into ROS 2 Packages
+## Using Substitutions
+## Using Event Handlers
+
+# ROS 2 tf2 Tutorials
+
+## Introducing tf2
+## Writing a Static Broadcaster (Python)
+## Writing a Static Broadcaster (C++)
+## Writing a Broadcaster (Python)
+## Writing a Broadcaster (C++)
+## Writing a Listener (Python)
+## Writing a Listener (C++)
+## Adding a Frame (Python)
+## Adding a Frame (C++)
+## Using Time (Python)
+## Using Time (C++)
+## Traveling in Time (Python)
+## Traveling in Time (C++)
+## Debugging
+## Quaternion Fundamentals
+## Using Stamped Datatypes with tf2_ros::MessageFilter
+
+# ROS 2 Testing Tutorials
+
+## Running Tests in ROS 2 from the Command Line
+## Writing Basic Tests with C++ using GTest
+## Writing Basic Tests with Python
+
+# ROS 2 URDF Tutorials
+
+## Building a Visual Robot Model from Scratch
+## Building a Movable Robot Model
+## Adding Physical and Collision Properties
+## Using Xacro to Clean Up Your Code
+## Using URDF with robot_state_publisher
 
