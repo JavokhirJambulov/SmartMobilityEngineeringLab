@@ -1,7 +1,7 @@
 # SmartMobilityEngineeringLab
 ROS2 Tutorials
 
-i. [Beginner: CLI Tools](#beginner-cli-tools)
+i. [Beginner: CLI Tools](beginner-cli-tools)
    1. [Configuring environment](#configuring-environment)
    2. [Using turtlesim, ros2, and rqt](#using-turtlesim-ros2-and-rqt)
    3. [Understanding nodes](#understanding-nodes)
@@ -26,7 +26,7 @@ ii. [Beginner: Client libraries](#beginner-client-libraries-1)
    10. [Using Parameters in a Class (C++)](#using-parameters-in-a-class-c)
    11. [Using Parameters in a Class (Python)](#using-parameters-in-a-class-python)
    12. [Using ros2doctor to Identify Issues](#using-ros2doctor-to-identify-issues)
-   13. [Chapter 13 - Creating and Using Plugins (C++)](#Creating-and-Using-Plugins-(C++_))
+   13. [Creating and Using Plugins (C++)](#creating-and-using-plugins-c)
 
 
 # Beginner: CLI Tools:
