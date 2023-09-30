@@ -13,7 +13,7 @@ i. [Beginner: CLI Tools](beginner-cli-tools)
    9. [Launching nodes](#launching-nodes)
    10. [Recording and playing back data](#recording-and-playing-back-data)
 
-ii. [Beginner: Client libraries](#beginner-client-libraries-1)
+ii. [Beginner: Client libraries](#beginner-client-libraries)
    1. [Using Colcon to Build Packages](#using-colcon-to-build-packages)
    2. [Creating a Workspace](#creating-a-workspace)
    3. [Creating a Package](#creating-a-package)
