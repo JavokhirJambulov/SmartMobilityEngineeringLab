@@ -31,7 +31,7 @@ ROS2 Tutorials
    13. [Chapter 13 - Creating and Using Plugins (C++)](#chapter-13-Creating-and-Using-Plugins-(C++_))
 
 
-#Beginner: CLI Tools
+#Beginner: CLI Tools:
 
 ## Configuring environment:
 • ROS 2 relies on the notion of combining workspaces using the shell environment. “Workspace” is a ROS term for the location on your system where you’re developing with ROS 2. The core ROS 2 workspace is called the underlay. Subsequent local workspaces are called overlays. When developing with ROS 2, you will typically have several workspaces active concurrently.
