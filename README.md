@@ -2,7 +2,6 @@
 ROS2 Tutorials
 
 1. [Beginner: CLI Tools](#Beginner:-CLI-Tools)
-
   1. [Configuring environment]()
   2. [Using turtlesim, ros2, and rqt]()
   3. [Understanding nodes]()
