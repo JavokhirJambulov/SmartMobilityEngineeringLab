@@ -28,74 +28,47 @@ ii. [Beginner: Client libraries](#beginner-client-libraries)
    12. [Using ros2doctor to Identify Issues](#using-ros2doctor-to-identify-issues)
    13. [Creating and Using Plugins (C++)](#creating-and-using-plugins-c)
 
-iii. [# ROS 2 Intermediate Tutorials](ros-2-intermediate-tutorials)
-   1. [Managing Dependencies with rosdep]()
-   2. [Creating an Action]()
-   3. [Writing an Action Server and Client (C++)]()
-   4. [Writing an Action Server and Client (Python)]()
-   5. [Composing Multiple Nodes in a Single Process]()
-   6. [Monitoring for Parameter Changes (C++)]()
-   7. [ROS 2 Launch Tutorials]()
-   8. [Creating a Launch File]()
-   9. [Integrating Launch Files into ROS 2 Packages]()
-   10. [Using Substitutions]()
-   11. [Using Event Handlers]()
-   12. [ROS 2 tf2 Tutorials]()
-   13. []()
-   14. []()
-   15. []()
-   16. []()
-## Managing Dependencies with rosdep
+iii. [# ROS 2 Intermediate Tutorials](#ros-2-intermediate-tutorials)
+   1. [Managing Dependencies with rosdep](#managing-dependencies-with-rosdep)
+   2. [Creating an Action](#creating-an-action)
+   3. [Writing an Action Server and Client (C++)](#writing-an-action-server-and-client-c)
+   4. [Writing an Action Server and Client (Python)](#writing-an-action-server-and-client-python)
+   5. [Composing Multiple Nodes in a Single Process](#composing-multiple-nodes-in-a-single-process)
+   6. [Monitoring for Parameter Changes (C++)](#monitoring-for-parameter-changes-c)
+   7. [ROS 2 Launch Tutorials](#ros-2-launch-tutorials)
+   8. [Creating a Launch File](#creating-a-launch-file)
+   9. [Integrating Launch Files into ROS 2 Packages](#integrating-launch-files-into-ros-2-packages)
+   10. [Using Substitutions](#using-substitutions)
+   11. [Using Event Handlers](#using-event-handlers)
+   12. [ROS 2 tf2 Tutorials](#ros-2-tf2-tutorials)
+   13. [Introducing tf2](#introducing-tf2)
+   14. [Writing a Static Broadcaster (Python)](#writing-a-static-broadcaster-python)
+   15. [Writing a Static Broadcaster (C++)](#writing-a-static-broadcaster-c)
+   16. [Writing a Broadcaster (Python)](#writing-a-broadcaster-python)
+   17. [Writing a Broadcaster (C++)](#writing-a-broadcaster-c)
+   18. [Writing a Listener (Python)](#writing-a-listener-python)
+   19. [Writing a Listener (C++)](#writing-a-listener-c)
+   20. [Adding a Frame (Python)](#adding-a-frame-python)
+   21. [Adding a Frame (C++)](#adding-a-frame-c)
+   22. [Using Time (Python)](#using-time-python)
+   23. [Using Time (C++)](#using-time-c)
+   24. [Traveling in Time (Python)](#traveling-in-time-python)
+   25. [Traveling in Time (C++)](#traveling-in-time-c)
+   26. [Debugging](#debugging)
+   27. [Quaternion Fundamentals](#quaternion-fundamentals)
+   28. [Using Stamped Datatypes with tf2_ros::MessageFilter](#using-stamped-datatypes-with-tf2_rosmessagefilter)
+   29. [ROS 2 Testing Tutorials](#ros-2-testing-tutorials)
+   30. [Running Tests in ROS 2 from the Command Line](#running-tests-in-ros-2-from-the-command-line)
+   31. [Writing Basic Tests with C++ using GTest](#writing-basic-tests-with-c-using-gtest)
+   32. [Writing Basic Tests with Python](#writing-basic-tests-with-python)
+   33. [ROS 2 URDF Tutorials](#ros-2-urdf-tutorials)
+   34. [Building a Visual Robot Model from Scratch](#building-a-visual-robot-model-from-scratch)
+   35. [Building a Movable Robot Model](#building-a-movable-robot-model)
+   36. [Adding Physical and Collision Properties](#adding-physical-and-collision-properties)
+   37. [Using Xacro to Clean Up Your Code](#using-xacro-to-clean-up-your-code)
+   38. [Using URDF with robot_state_publisher](#using-urdf-with-robot_state_publisher)
 
-## Creating an Action
 
-## Writing an Action Server and Client (C++)
-
-## Writing an Action Server and Client (Python)
-
-## Composing Multiple Nodes in a Single Process
-
-## Monitoring for Parameter Changes (C++)
-
-# ROS 2 Launch Tutorials
-
-## Creating a Launch File
-## Integrating Launch Files into ROS 2 Packages
-## Using Substitutions
-## Using Event Handlers
-
-# ROS 2 tf2 Tutorials
-
-## Introducing tf2
-## Writing a Static Broadcaster (Python)
-## Writing a Static Broadcaster (C++)
-## Writing a Broadcaster (Python)
-## Writing a Broadcaster (C++)
-## Writing a Listener (Python)
-## Writing a Listener (C++)
-## Adding a Frame (Python)
-## Adding a Frame (C++)
-## Using Time (Python)
-## Using Time (C++)
-## Traveling in Time (Python)
-## Traveling in Time (C++)
-## Debugging
-## Quaternion Fundamentals
-## Using Stamped Datatypes with tf2_ros::MessageFilter
-
-# ROS 2 Testing Tutorials
-
-## Running Tests in ROS 2 from the Command Line
-## Writing Basic Tests with C++ using GTest
-## Writing Basic Tests with Python
-
-# ROS 2 URDF Tutorials
-
-## Building a Visual Robot Model from Scratch
-## Building a Movable Robot Model
-## Adding Physical and Collision Properties
-## Using Xacro to Clean Up Your Code
-## Using URDF with robot_state_publisher
 
 
 # Beginner: CLI Tools:
