@@ -346,104 +346,321 @@ The source code can be found in the colcon GitHub organization.
 <img src="images/Screenshot from 2023-09-30 14-09-47.png">
 
 
-Intermediate:
-Managing Dependencies with rosdep:
-Creating an action:
-Writing an action server and client (C++):
-Writing an action server and client (Python):
-Composing multiple nodes in a single process:
-Monitoring for parameter changes (C++):
-
-Launch:   
-Creating a launch file
-Integrating launch files into ROS 2 packages
-Using substitutions
-Using event handlers
-
-   
-tf2:
-Introducing tf2
-Writing a static broadcaster (Python)
-Writing a static broadcaster (C++)
-Writing a broadcaster (Python)
-Writing a broadcaster (C++)
-Writing a listener (Python)
-Writing a listener (C++)
-Adding a frame (Python)
-Adding a frame (C++)
-Using time (Python)
-Using time (C++)
-Traveling in time (Python)
-Traveling in time (C++)
-Debugging
-Quaternion fundamentals
-Using stamped datatypes with tf2_ros::MessageFilter
-
-Testing:
-Running Tests in ROS 2 from the Command Line
-Writing Basic Tests with C++ with GTest
-Writing Basic Tests with Python
-
-
-URDF:
-Building a visual robot model from scratch
-Building a movable robot model
-Adding physical and collision properties
-Using Xacro to clean up your code
-Using URDF with robot_state_publisher
-
-
 # ROS 2 Intermediate Tutorials
 
 ## Managing Dependencies with rosdep
+- rosdep is a dependency management utility that can work with packages and external libraries. It is a command-line utility for identifying and installing dependencies to build or install a package. rosdep is not a package manager in its own right; it is a meta-package manager that uses its own knowledge of the system and the dependencies to find the appropriate package to install on a particular platform. The actual installation is done using the system package manager (e.g. apt on Debian/Ubuntu, dnf on Fedora/RHEL, etc).
+- The package.xml is the file in your software where rosdep finds the set of dependencies. It is important that the list of dependencies in the package.xml is complete and correct, which allows all of the tooling to determine the packages dependencies. Missing or incorrect dependencies can lead to users not being able to use your package, to packages in a workspace being built out-of-order, and to packages not being able to be released.
+- If your library isn’t in rosdistro, you can experience the greatness that is open-source software development: you can add it yourself! Pull requests for rosdistro are typically merged well within a week.
+
 
 ## Creating an Action
 
+- You learned about actions previously in the Understanding actions tutorial. Like the other communication types and their respective interfaces (topics/msg and services/srv), you can also custom-define actions in your packages. This tutorial shows you how to define and build an action that you can use with the action server and action client you will write in the next tutorial.
+- Prerequisites: You should have ROS 2 and colcon installed.
+
+<img src="images/Screenshot from 2023-10-01 12-22-31.png">
+<img src="images/Screenshot from 2023-10-01 12-22-40.png">
+<img src="images/Screenshot from 2023-10-01 12-22-49.png">
+
 ## Writing an Action Server and Client (C++)
+
+- Actions are a form of asynchronous communication in ROS. Action clients send goal requests to action servers. Action servers send goal feedback and results to action clients.
+-Prerequisites:You will need the action_tutorials_interfaces package and the Fibonacci.action interface defined in the previous tutorial, Creating an action.
+
+<img src="images/Screenshot from 2023-10-01 12-26-57.png">
+<img src="images/Screenshot from 2023-10-01 12-28-11.png">
+<img src="images/Screenshot from 2023-10-01 12-29-19.png">
+<img src="images/Screenshot from 2023-10-01 12-32-17.png">
+<img src="images/Screenshot from 2023-10-01 12-33-24.png">
+<img src="images/Screenshot from 2023-10-01 12-34-55.png">
+<img src="images/Screenshot from 2023-10-01 12-35-04.png">
 
 ## Writing an Action Server and Client (Python)
 
+- Actions are a form of asynchronous communication in ROS 2. Action clients send goal requests to action servers. Action servers send goal feedback and results to action clients.
+
+- Prerequisites: You will need the action_tutorials_interfaces package and the Fibonacci.action interface defined in the previous tutorial, Creating an action.
+
 ## Composing Multiple Nodes in a Single Process
+
+- Discover available components
+- To see what components are registered and available in the workspace, execute the following in a shell:
+ros2 component types
+
+-Run-time composition using ROS services with a publisher and subscriber
+- In the first shell, start the component container:
+ros2 run rclcpp_components component_container
+
+- Open the second shell and verify that the container is running via ros2 command line tools:
+ros2 component list
+
+<img src="images/Screenshot from 2023-10-01 15-09-45.png">
+<img src="images/Screenshot from 2023-10-01 18-00-21.png">
+<img src="images/Screenshot from 2023-10-01 18-00-25.png">
+<img src="images/Screenshot from 2023-10-01 18-01-00.png">
+<img src="images/Screenshot from 2023-10-01 18-01-12.png">
+<img src="images/Screenshot from 2023-10-01 18-01-35.png">
 
 ## Monitoring for Parameter Changes (C++)
 
+- Often a node needs to respond to changes to its own parameters or another node’s parameters. The ParameterEventHandler class makes it easy to listen for parameter changes so that your code can respond to them. This tutorial will show you how to use the C++ version of the ParameterEventHandler class to monitor for changes to a node’s own parameters as well as changes to another node’s parameters.
+
+- Before starting this tutorial, you should first complete the following tutorials:
+Understanding parameters
+Using parameters in a class (C++)
+- In addition, you must be running the Galactic distribution of ROS 2.
+- 
+<img src="images/Screenshot from 2023-10-01 18-07-01.png">
+<img src="images/Screenshot from 2023-10-01 18-07-13.png">
+<img src="images/Screenshot from 2023-10-01 18-07-19.png">
+
 # ROS 2 Launch Tutorials
 
+- ROS 2 Launch files allow you to start up and configure a number of executables containing ROS 2 nodes simultaneously.
+  
 ## Creating a Launch File
+
+- The launch system in ROS 2 is responsible for helping the user describe the configuration of their system and then execute it as described. The configuration of the system includes what programs to run, where to run them, what arguments to pass them, and ROS-specific conventions which make it easy to reuse components throughout the system by giving them each a different configuration. It is also responsible for monitoring the state of the processes launched, and reporting and/or reacting to changes in the state of those processes.
+  
+
+<img src="images/Screenshot from 2023-10-01 18-09-35.png">
+<img src="images/Screenshot from 2023-10-01 18-10-19.png">
+<img src="images/Screenshot from 2023-10-01 18-10-53.png">
+<img src="images/Annotation 2023-10-01 181118.png">
+
 ## Integrating Launch Files into ROS 2 Packages
+
+- Prerequisites: You should have gone through the tutorial on how to create a ROS 2 package. As always, don’t forget to source ROS 2 in every new terminal you open.
+
+- Background: In the previous tutorial, we saw how to write a standalone launch file. This tutorial will show how to add a launch file to an existing package, and the conventions typically used.
+
+<img src="images/Screenshot from 2023-10-01 18-18-11.png">
+<img src="images/Screenshot from 2023-10-01 18-18-16.png">
+
 ## Using Substitutions
+
+- Launch files are used to start nodes, services, and execute processes. This set of actions may have arguments, which affect their behavior. Substitutions can be used in arguments to provide more flexibility when describing reusable launch files. Substitutions are variables that are only evaluated during the execution of the launch description and can be used to acquire specific information like a launch configuration, an environment variable, or to evaluate an arbitrary Python expression.
+
+- This tutorial shows usage examples of substitutions in ROS 2 launch files.
+
 ## Using Event Handlers
+
+- Launch in ROS 2 is a system that executes and manages user-defined processes. It is responsible for monitoring the state of processes it launched, as well as reporting and reacting to changes in the state of those processes. These changes are called events and can be handled by registering an event handler with the launch system. Event handlers can be registered for specific events and can be useful for monitoring the state of processes. Additionally, they can be used to define a complex set of rules which can be used to dynamically modify the launch file.
+
+- This tutorial shows usage examples of event handlers in ROS 2 launch files.
+
+## Managing Large projects
+
+- This tutorial describes some tips for writing launch files for large projects. The focus is on how to structure launch files so they may be reused as much as possible in different situations. Additionally, it covers usage examples of different ROS 2 launch tools, like parameters, YAML files, remappings, namespaces, default arguments, and RViz configs.
+
+<img src="images/Annotation 2023-10-01 182010.png">
+
+<img src="images/Annotation 2023-10-01 182024.png">
 
 # ROS 2 tf2 Tutorials
 
+- Many of the tf2 tutorials are available for both C++ and Python. The tutorials are streamlined to complete either the C++ track or the Python track. If you want to learn both C++ and Python, you should go through the tutorials once for C++ and once for Python.
+
 ## Introducing tf2
+
+- Let’s start by installing the demo package and its dependencies.
+sudo apt-get install ros-humble-turtle-tf2-py ros-humble-tf2-tools ros-humble-tf-transformations
+
+- Now that we’ve installed the turtle_tf2_py tutorial package let’s run the demo. First, open a new terminal and source your ROS 2 installation so that ros2 commands will work. Then run the following command:
+ros2 launch turtle_tf2_py turtle_tf2_demo.launch.py
+
+<img src="images/Screenshot from 2023-10-01 18-23-44.png">
+<img src="images/Screenshot from 2023-10-01 18-24-30.png">
+<img src="images/Screenshot from 2023-10-01 18-26-12.png">
+<img src="images/Screenshot from 2023-10-01 18-26-24.png">
+<img src="images/Screenshot from 2023-10-01 18-28-14.png">
+
 ## Writing a Static Broadcaster (Python)
+
+- Publishing static transforms is useful to define the relationship between a robot base and its sensors or non-moving parts. For example, it is easiest to reason about laser scan measurements in a frame at the center of the laser scanner.
+
+- This is a standalone tutorial covering the basics of static transforms, which consists of two parts. In the first part we will write code to publish static transforms to tf2. In the second part, we will explain how to use the commandline static_transform_publisher executable tool in tf2_ros.
+
+<img src="images/Screenshot from 2023-10-01 18-35-59.png">
+
 ## Writing a Static Broadcaster (C++)
+
+- Publishing static transforms is useful to define the relationship between a robot base and its sensors or non-moving parts. For example, it is easiest to reason about laser scan measurements in a frame at the center of the laser scanner.
+
+- This is a standalone tutorial covering the basics of static transforms, which consists of two parts. In the first part we will write code to publish static transforms to tf2. In the second part, we will explain how to use the commandline static_transform_publisher executable tool in tf2_ros.
+  
 ## Writing a Broadcaster (Python)
+
+- In the next two tutorials we will write the code to reproduce the demo from the Introduction to tf2 tutorial. After that, following tutorials focus on extending the demo with more advanced tf2 features, including the usage of timeouts in transformation lookups and time travel.
+
 ## Writing a Broadcaster (C++)
+
+- In the next two tutorials we will write the code to reproduce the demo from the Introduction to tf2 tutorial. After that, following tutorials focus on extending the demo with more advanced tf2 features, including the usage of timeouts in transformation lookups and time travel.
+
 ## Writing a Listener (Python)
+
+- In previous tutorials we created a tf2 broadcaster to publish the pose of a turtle to tf2.
+
+- In this tutorial, we’ll create a tf2 listener to start using tf2.
+  
+- This tutorial assumes you have completed the tf2 broadcaster tutorial (Python). In the previous tutorial, we created a learning_tf2_py package, which is where we will continue working from.
+
 ## Writing a Listener (C++)
+- In previous tutorials we created a tf2 broadcaster to publish the pose of a turtle to tf2.
+
+- In this tutorial, we’ll create a tf2 listener to start using tf2.
+  
+- This tutorial assumes you have completed the tf2 static broadcaster tutorial (C++) and the tf2 broadcaster tutorial (C++). In the previous tutorial, we created a learning_tf2_cpp package, which is where we will continue working from.
+  
 ## Adding a Frame (Python)
+
+- In previous tutorials, we recreated the turtle demo by writing a tf2 broadcaster and a tf2 listener. This tutorial will teach you how to add extra fixed and dynamic frames to the transformation tree. In fact, adding a frame in tf2 is very similar to creating the tf2 broadcaster, but this example will show you some additional features of tf2.
+
+- For many tasks related to transformations, it is easier to think inside a local frame. For example, it is easiest to reason about laser scan measurements in a frame at the center of the laser scanner. tf2 allows you to define a local frame for each sensor, link, or joint in your system. When transforming from one frame to another, tf2 will take care of all the hidden intermediate frame transformations that are introduced.
+
 ## Adding a Frame (C++)
+
+- In previous tutorials, we recreated the turtle demo by writing a tf2 broadcaster and a tf2 listener. This tutorial will teach you how to add extra fixed and dynamic frames to the transformation tree. In fact, adding a frame in tf2 is very similar to creating the tf2 broadcaster, but this example will show you some additional features of tf2.
+
+- For many tasks related to transformations, it is easier to think inside a local frame. For example, it is easiest to reason about laser scan measurements in a frame at the center of the laser scanner. tf2 allows you to define a local frame for each sensor, link, or joint in your system. When transforming from one frame to another, tf2 will take care of all the hidden intermediate frame transformations that are introduced.
+
 ## Using Time (Python)
+
+- In previous tutorials, we recreated the turtle demo by writing a tf2 broadcaster and a tf2 listener. We also learned how to add a new frame to the transformation tree. Now we will learn more about the timeout argument which makes the lookup_transform wait for the specified transform for up to the specified duration before throwing an exception. This tool can be useful to listen for transforms that are published at varying rates or those incoming source with unreliable networking and non negligible latency. This tutorial will teach you how use the timeout in lookup_transform function to wait for a transform to be available on the tf2 tree.
+
+- You should notice that lookup_transform() will actually block until the transform between the two turtles becomes available (this will usually take a few milli-seconds). Once the timeout has been reached (one second in this case), an exception will be raised only if the transform is still not available.
+
+- In this tutorial you learned more about the lookup_transform function and its timeout features. You also learned how to catch and handle additional exceptions that can be thrown by tf2.
+
+
 ## Using Time (C++)
+
+- In previous tutorials, we recreated the turtle demo by writing a tf2 broadcaster and a tf2 listener. We also learned how to add a new frame to the transformation tree. Now we will learn more about the timeout argument which makes the lookup_transform wait for the specified transform for up to the specified duration before throwing an exception. This tool can be useful to listen for transforms that are published at varying rates or those incoming source with unreliable networking and non negligible latency. This tutorial will teach you how use the timeout in lookup_transform function to wait for a transform to be available on the tf2 tree.
+
+- You should notice that lookup_transform() will actually block until the transform between the two turtles becomes available (this will usually take a few milli-seconds). Once the timeout has been reached (one second in this case), an exception will be raised only if the transform is still not available.
+
+- In this tutorial you learned more about the lookup_transform function and its timeout features. You also learned how to catch and handle additional exceptions that can be thrown by tf2.
+
 ## Traveling in Time (Python)
+
+- In the previous tutorial, we discussed the basics of tf2 and time. This tutorial will take us one step further and expose a powerful tf2 trick: the time travel. In short, one of the key features of tf2 library is that it is able to transform data in time as well as in space.
+
+- This tf2 time travel feature can be useful for various tasks, like monitoring the pose of the robot for a long period of time or building a follower robot that will follow the “steps” of the leader. We will use that time travel feature to look up transforms back in time and program turtle2 to follow 5 seconds behind carrot1.
+
+- In this tutorial, you have seen one of the advanced features of tf2. You learned that tf2 can transform data in time and learned how to do that with turtlesim example. tf2 allowed you to go back in time and make frame transformations between old and current poses of turtles by using the advanced lookup_transform_full() API.
+
 ## Traveling in Time (C++)
+
+- In the previous tutorial, we discussed the basics of tf2 and time. This tutorial will take us one step further and expose a powerful tf2 trick: the time travel. In short, one of the key features of tf2 library is that it is able to transform data in time as well as in space.
+
+- This tf2 time travel feature can be useful for various tasks, like monitoring the pose of the robot for a long period of time or building a follower robot that will follow the “steps” of the leader. We will use that time travel feature to look up transforms back in time and program turtle2 to follow 5 seconds behind carrot1.
+
+- In this tutorial, you have seen one of the advanced features of tf2. You learned that tf2 can transform data in time and learned how to do that with turtlesim example. tf2 allowed you to go back in time and make frame transformations between old and current poses of turtles by using the advanced lookup_transform_full() API.
+
 ## Debugging
+
+- This tutorial walks you through the steps to debug a typical tf2 problem. It will also use many of the tf2 debugging tools, such as tf2_echo, tf2_monitor, and view_frames. This tutorial assumes you have completed the learning tf2 tutorials.
+
+- In this tutorial, you learned how to use a systematic approach for debugging tf2 related problems. You also learned how to use tf2 debugging tools, such as tf2_echo, tf2_monitor, and view_frames to help you debug those tf2 problems.
+
+
 ## Quaternion Fundamentals
+
+- A quaternion is a 4-tuple representation of orientation, which is more concise than a rotation matrix. Quaternions are very efficient for analyzing situations where rotations in three dimensions are involved. Quaternions are used widely in robotics, quantum mechanics, computer vision, and 3D animation.         
+
+- In this tutorial, you will learn how quaternions and conversion methods work in ROS 2. However, this is not a hard requirement and you can stick to any other geometric transfromation library that suit you best.
+
+- In this tutorial, you learned about the fundamental concepts of a quaternion and its related mathematical operations, like inversion and rotation. You also learned about its usage examples in ROS 2 and conversion methods between two separate Quaternion classes.
+
+
 ## Using Stamped Datatypes with tf2_ros::MessageFilter
+
+- This tutorial explains how to use sensor data with tf2. Some real-world examples of sensor data are:
+cameras, both mono and stereo
+laser scans
+- Suppose that a new turtle named turtle3 is created and it doesn’t have good odometry, but there is an overhead camera tracking its position and publishing it as a PointStamped message in relation to the world frame.
+
+- turtle1 wants to know where turtle3 is compared to itself.
+
+- To do this turtle1 must listen to the topic where turtle3’s pose is being published, wait until transforms into the desired frame are ready, and then do its operations. To make this easier the tf2_ros::MessageFilter is very useful. The tf2_ros::MessageFilter will take a subscription to any ROS 2 message with a header and cache it until it is possible to transform it into the target frame.
+
+- In this tutorial you learned how to use sensor data/messages in tf2. Specifically speaking, you learned how to publish PointStamped messages on a topic, and how to listen to the topic and transform the frame of PointStamped messages with tf2_ros::MessageFilter.
+
 
 # ROS 2 Testing Tutorials
 
+
 ## Running Tests in ROS 2 from the Command Line
+
+- Build and run your tests
+- To compile and run the tests, simply run the test verb from colcon.
+- colcon test --ctest-args tests [package_selection_args]
+- (where package_selection_args are optional package selection arguments for colcon to limit which packages are built and run)
+- Sourcing the workspace before testing should not be necessary. colcon test makes sure that the tests run with the right environment, have access to their dependencies, etc.
+
+<img src="images/Screenshot from 2023-10-01 18-38-32.png">
+
 ## Writing Basic Tests with C++ using GTest
+
+- Starting point: we’ll assume you have a basic ament_cmake package set up already and you want to add some tests to it.
+
+- In this tutorial, we’ll be using gtest.
+
 ## Writing Basic Tests with Python
+
+- Starting point: we’ll assume you have a basic ament_python package set up already and you want to add some tests to it.
+
+- If you are using ament_cmake_python, refer to the the ament_cmake_python docs for how to make tests dicoverable. The test contents and invocation with colcon remain the same.
 
 # ROS 2 URDF Tutorials
 
+- URDF (Unified Robot Description Format) is a file format for specifying the geometry and organization of robots in ROS.
+
 ## Building a Visual Robot Model from Scratch
+
+- In this tutorial, we’re going to build a visual model of a robot that vaguely looks like R2D2. In later tutorials, you’ll learn how to articulate the model, add in some physical properties, and generate neater code with xacro, but for now, we’re going to focus on getting the visual geometry correct.
+
+- Before continuing, make sure you have the joint_state_publisher package installed. If you installed urdf_tutorial binaries, this should already be the case. If not, please update your installation to include that package (use rosdep to check).
+
+<img src="images/Annotation 2023-10-01 184148.png">
+<img src="images/Annotation 2023-10-01 184201.png">
+<img src="images/Annotation 2023-10-01 184212.png">
+<img src="images/Annotation 2023-10-01 184240.png">
+
 ## Building a Movable Robot Model
+
+- In this tutorial, we’re going to revise the R2D2 model we made in the previous tutorial so that it has movable joints. In the previous model, all of the joints were fixed. Now we’ll explore three other important types of joints: continuous, revolute and prismatic.
+
+- Make sure you have installed all prerequisites before continuing. See the previous tutorial for information on what is required.
+
 ## Adding Physical and Collision Properties
+
+- In this tutorial, we’ll look at how to add some basic physical properties to your URDF model and how to specify its collision properties.
+- So far, we’ve only specified our links with a single sub-element, visual, which defines (not surprisingly) what the robot looks like. However, in order to get collision detection to work or to simulate the robot, we need to define a collision element as well. Here is the new urdf with collision and physical properties.
+
 ## Using Xacro to Clean Up Your Code
+
+- By now, if you’re following all these steps at home with your own robot design, you might be sick of doing all sorts of math to get very simple robot descriptions to parse correctly. Fortunately, you can use the xacro package to make your life simpler. It does three things that are very helpful.
+Constants
+Simple Math
+Macros
+
+- In this tutorial, we take a look at all these shortcuts to help reduce the overall size of the URDF file and make it easier to read and maintain.
+
 ## Using URDF with robot_state_publisher
+
+- This tutorial will show you how to model a walking robot, publish the state as a tf2 message and view the simulation in Rviz. First, we create the URDF model describing the robot assembly. Next we write a node which simulates the motion and publishes the JointState and transforms. We then use robot_state_publisher to publish the entire robot state to /tf2.
+- Prerequisites
+rviz2
+
+- As always, don’t forget to source ROS 2 in every new terminal you open.
+- 
+<img src="images/Annotation 2023-10-01 184309.png">
+
+
+
+
+
+
 
