@@ -3,26 +3,26 @@
 # Project Title: Action-Based Obstacle Avoidance with ROS 2 and Turtlesim
 
 
-#Introduction:
+## Introduction:
 
 The project aims to demonstrate action-based obstacle avoidance using the Robot Operating System 2 (ROS 2) framework in a simulated environment provided by turtlesim. The primary objective is to create an action server that controls the movement of a virtual "TurtleBot" while avoiding obstacles and an action client to send movement commands.
 
-#Project Components:
+## Project Components:
 
-#Action Server (Turtle Action Server):
+### Action Server (Turtle Action Server):
 
 Responsible for handling action goals and executing movements in the turtlesim environment.
 Implements obstacle avoidance logic to ensure safe navigation.
 Provides feedback to the client regarding the progress of the action.
 Sends a result indicating the outcome of the action (e.g., success or failure).
 
-#Action Client (MoveTurtle Client):
+### Action Client (MoveTurtle Client):
 
 Sends action goals to the Turtle Action Server.
 Monitors the execution of the action and receives feedback from the server.
 Displays the result of the action execution.
 
-#Turtlesim Environment:
+### Turtlesim Environment:
 
 Provides a virtual simulation environment in which the "TurtleBot" operates.
 Accepts velocity commands via topics for controlling the "TurtleBot."
@@ -46,14 +46,14 @@ ros2 run <your_package_name> move_turtle_server
 
 This will start the action server, which is responsible for moving the virtual "TurtleBot" in turtlesim.
 
-#Run the Action Client:
+# Run the Action Client:
 
 Open another terminal and run your action client. Replace <your_package_name> with the actual name of your ROS 2 package:
 
 ros2 run <your_package_name> move_turtle_client
 This will send a goal to the action server, instructing the virtual "TurtleBot" to move to a specified position in turtlesim.
 
-#Observe Execution:
+# Observe Execution:
 
 You should now see the virtual "TurtleBot" in turtlesim move to the goal position based on the client's goal input. The action client will also print the result of the action, indicating whether it was successful or not.
 
