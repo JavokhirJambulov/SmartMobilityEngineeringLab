@@ -7,6 +7,22 @@
 
 The project aims to demonstrate action-based obstacle avoidance using the Robot Operating System 2 (ROS 2) framework in a simulated environment provided by turtlesim. The primary objective is to create an action server that controls the movement of a virtual "TurtleBot" while avoiding obstacles and an action client to send movement commands.
 
+## Action Diagram:
+
+![image](https://github.com/JavokhirJambulov/SmartMobilityEngineeringLab/assets/91411930/2150f410-b20e-4e98-bc0c-b2c223816a54)
+
+## Interaction Diagram Components:
+
+Action Client Node: This is the node responsible for sending action goals to the server.
+
+Action Server Node: This node handles action requests, executes the actions, and sends feedback/results.
+
+Turtlesim Node: The virtual environment in which the "TurtleBot" operates. You can interact with turtlesim through topics.
+
+Topics: Topics are used to exchange messages between nodes. You can indicate the topic names and the direction of message flow.
+
+
+
 ## Project Components:
 
 ### Action Server (Turtle Action Server):
