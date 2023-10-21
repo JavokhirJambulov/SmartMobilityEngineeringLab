@@ -92,6 +92,9 @@ To run the Fleet Management Action Client:
 - **Scenario 2:** Error Handling
   - Test how the application handles incorrect inputs, such as non-integer fleet sizes or negative values.
 
+    <img width="745" alt="Annotation 2023-10-21 234020" src="https://github.com/JavokhirJambulov/SmartMobilityEngineeringLab/assets/91411930/5e10dd0d-75b9-4c90-b8bc-297aa6983468">
+
+
 ## Additional Information
 
 - Detailed documentation for the Fleet Management ROS 2 application can be found in the `docs` directory of the package.
