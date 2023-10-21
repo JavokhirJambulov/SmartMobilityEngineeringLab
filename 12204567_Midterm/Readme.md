@@ -7,6 +7,10 @@ Name: Javokhir Jambulov
 
 This ROS 2 application, Fleet Management, efficiently allocates and routes vehicles for smart mobility services. This README provides instructions for setting up and running the application. Please follow the steps below.
 
+<img width="379" alt="Annotation 2023-10-22 000701" src="https://github.com/JavokhirJambulov/SmartMobilityEngineeringLab/assets/91411930/a4ae3a5a-198f-4ad0-8fcf-4aa894cb0173">
+
+<img width="370" alt="Annotation 2023-10-22 000724" src="https://github.com/JavokhirJambulov/SmartMobilityEngineeringLab/assets/91411930/97055163-3775-4786-b721-a66945116abf">
+
 ## Prerequisites
 
 - ROS 2 installed (Foxy or later)
@@ -92,7 +96,6 @@ To run the Fleet Management Action Client:
 - **Scenario 2:** Error Handling
   - Test how the application handles incorrect inputs, such as non-integer fleet sizes or negative values.
 
-    <img width="745" alt="Annotation 2023-10-21 234020" src="https://github.com/JavokhirJambulov/SmartMobilityEngineeringLab/assets/91411930/5e10dd0d-75b9-4c90-b8bc-297aa6983468">
 
 
 ## Additional Information
